@@ -36,13 +36,21 @@ button {
     padding: 1.5rem;
 }
 
-.question-list > * {
+.historic-item {
     list-style: none;
-    background-color: violet;
+    background-color: #f9f7f3;
     padding: 1rem;
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .p-q {
     font-weight: bold;
+}
+
+.historic-date {
+    align-self: flex-end;
+    margin-right: 2rem;
+    color: grey;
 }

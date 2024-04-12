@@ -79,8 +79,19 @@ const history = () => {
         historicA.classList = "p-a"
         historicA.innerHTML = historicQuery[1]
 
+        let historicDate = document.createElement('p')
+        historicDate.classList = "historic-date"
+        historicDate.innerHTML = new Date(date).toLocaleTimeString(
+            'en-gb',
+            {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })
+
         item.appendChild(historicQ)
         item.appendChild(historicA)
+        item.appendChild(historicDate)
         questionList.appendChild(item)
     })
 
