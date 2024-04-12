@@ -28,3 +28,21 @@ button {
     align-self: center;
     font-size: 1rem;
 }
+
+.qAndA {
+    display: none;
+    flex-direction: column;
+    background-color: #fcfce8;
+    padding: 1.5rem;
+}
+
+.question-list > * {
+    list-style: none;
+    background-color: violet;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.p-q {
+    font-weight: bold;
+}
