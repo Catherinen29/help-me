@@ -2,6 +2,7 @@ const API_URL = "https://api.openai.com/v1/chat/completions"
 import { OPEN_AI_KEY } from "./config.js"
 
 
+// AI question-answer
 export const getAnswer = (userInput) => {
     console.log('getAnswer function running...')
 
