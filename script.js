@@ -14,6 +14,7 @@ const submitForm = (e) => {
     .then(a => {
         question.innerHTML = userInput.value
         answer.innerHTML = a.choices[0].message.content
+        userInput.value = ""
     })
 
 }

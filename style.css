@@ -1,16 +1,30 @@
 body {
     padding: 3rem;
+    background-image: url('./img/clouds-img.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.heading {
+    margin-top: 5rem;
+    font-size: 2.5rem;
+}
 .form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 50%;
+    margin: 2rem;
+    font-size: 1.5rem;
 }
 
 button {
     width: fit-content;
-    height: 2rem;
+    padding: 0.5rem;
+    background-color: #fcfce8;
+    box-shadow: 2px 2px grey;
     align-self: center;
+    font-size: 1rem;
 }
