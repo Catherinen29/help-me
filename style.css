@@ -17,6 +17,7 @@ body {
     gap: 1rem;
     width: 50%;
     margin: 2rem;
+    margin-bottom: 1rem;
     font-size: 1.5rem;
 }
 
@@ -29,20 +30,27 @@ button {
     font-size: 1rem;
 }
 
-.qAndA {
+.random-quote {
     display: none;
     flex-direction: column;
-    background-color: #fcfce8;
-    padding: 1.5rem;
+    justify-content: center;
+    height: 10rem;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    font-size: 1.2rem;
 }
 
+
+.question-list {
+    padding: 0;
+}
 .historic-item {
     list-style: none;
     background-color: #f9f7f3;
-    padding: 1rem;
-    margin: 1rem;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
+    margin: 1rem;
 }
 
 .p-q {

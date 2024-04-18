@@ -2,10 +2,8 @@ console.log('Help me!')
 import { getAnswer } from "./api-requests.js"
 import { randomQuote } from "./quote-api-requests.js"
 
-let qAndA = document.querySelector(".qAndA")
-let question = document.querySelector(".question")
-let answer = document.querySelector(".answer")
 let questionList = document.querySelector(".question-list")
+let quoteBody = document.querySelector(".random-quote")
 let author = document.querySelector(".author")
 let quote = document.querySelector(".quote")
 let userInput = document.querySelector(".userInput")
@@ -18,8 +16,8 @@ const submitForm = (e) => {
 
     if (userInput.value.length > 0) {
 
-        let current = {question: "", answer: ""}
-
+        quoteBody.style.display = "none"
+        
         getAnswer(userInput.value)
         .then(a => {
             const date = new Date().toUTCString()
@@ -28,11 +26,33 @@ const submitForm = (e) => {
             author.innerHTML = ""
             quote.innerHTML = ""
 
-            qAndA.style.display = "flex"
-            question.innerHTML = userInput.value
-            answer.innerHTML = a.choices[0].message.content
+            let item = document.createElement('li')
+            item.classList = "historic-item"
+    
+            let newQ = document.createElement('p')
+            newQ.classList = "p-q"
+            newQ.innerHTML = userInput.value
+    
+            let newA = document.createElement('p')
+            newA.classList = "p-a"
+            newA.innerHTML = a.choices[0].message.content
+    
+            let newDate = document.createElement('p')
+            newDate.classList = "historic-date"
+            newDate.innerHTML = new Date(date).toLocaleTimeString(
+                'en-gb',
+                {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })
+    
+            item.appendChild(newQ)
+            item.appendChild(newA)
+            item.appendChild(newDate)
+            questionList.prepend(item)
 
-            current = JSON.stringify([
+            let current = JSON.stringify([
                 userInput.value, 
                 a.choices[0].message.content
             ])
@@ -44,12 +64,11 @@ const submitForm = (e) => {
     } else {
         randomQuote()
         .then(random => {
-            qAndA.style.display = "none"
+            quoteBody.style.display = "flex"
+
             author.innerHTML = `${random.author} once said...`
             quote.innerHTML = `"${random.content}"`
 
-            question.innerHTML = ""
-            answer.innerHTML = ""
         })
     }
 }
